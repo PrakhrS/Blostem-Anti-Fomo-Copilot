@@ -5,6 +5,7 @@ const helmet = require('helmet');
 const connectDB = require('./src/config/db');
 const { notFound, errorHandler } = require('./src/middlewares/errorMiddleware');
 const authRoutes = require('./src/routes/authRoutes');
+const tradeRoutes = require('./src/routes/tradeRoutes');
 
 // Connect to database
 connectDB();
@@ -18,6 +19,7 @@ app.use(express.json());
 
 // Routes
 app.use('/api/auth', authRoutes);
+app.use('/api/trade', tradeRoutes);
 
 app.get('/', (req, res) => {
   res.send('API is running...');
